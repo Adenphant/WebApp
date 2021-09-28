@@ -1,5 +1,11 @@
 "use strict";
 
+
+
+
+
+
+
 // hide all pages
 function hideAllPages() {
   let pages = document.querySelectorAll(".page");
@@ -35,7 +41,7 @@ function navigateTo(pageId) {
 // set default page or given page by the hash url
 // function is called 'onhashchange'
 function pageChange() {
-  let page = "movies";
+  let page = "swipespil";
   if (location.hash) {
     page = location.hash.slice(1);
   }
