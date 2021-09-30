@@ -256,6 +256,20 @@ h1 {
   color: #CDD6DD;
 }
 
+/* ---------- my page ---------- */
+
+#mypage h2{
+font-size:large;
+
+}
+
+#mypage p1 {
+height: 20vh;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
 
 /* ---------- logo styling ---------- */
 .logo {
