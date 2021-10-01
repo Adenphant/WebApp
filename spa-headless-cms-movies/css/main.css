@@ -258,6 +258,10 @@ h1 {
 
 /* ---------- my page ---------- */
 
+#mypage {
+  padding-bottom: 5%;
+}
+
 #mypage h2{
 font-size:large;
 
