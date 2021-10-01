@@ -1,0 +1,79 @@
+<!doctype html> 
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Movies</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Movie Single Page Application">
+  <meta name="author" content="Rasmus Cederdorff">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+</head>
+
+<body onhashchange="pageChange()">
+  <!-- tabbar navigation -->
+  <nav class="tabbar">
+    <a href="#/" class="nav-link">Main Page</a>
+    <a href="#/genres" class="nav-link">Genres</a>
+    <a href="#/explore" class="nav-link">Explore</a>
+    <a href="#/mypage" class="nav-link">My Page</a>
+  </nav>
+
+  <!-- pages -->
+  <!-- Mainpage -->
+  <section id="mainpage" class="page">
+    <div class="banner-mainpage"></div>
+    <img src="img/banner.jpeg">
+    <h2>Hot right now</h2>
+    <h1>Featured Genres</h1>
+    <section id="featured-container" class="grid-container">
+    </section>
+    <h1>Featured Artists</h1>
+    <section id="artist-container" class="grid-container">
+    </section>
+    <h1>Right Now - For You</h1>
+    <section id="rightnow-container" class="grid-container">
+    </section>
+  </section>
+
+  <!-- Genres -->
+  <section id="genres" class="page">
+    <h2>Genres</h2>
+    <input type="search" placeholder="Search genre..">
+    <h3>Or scroll to discover</h3>
+    <h1>HipHop</h1>
+    <section id="hiphop-container" class="grid-container">
+    </section>
+    <h1>Pop</h1>
+    <section id="pop-container" class="grid-container">
+    </section>
+    <h1>Rock</h1>
+    <section id="rock-container" class="grid-container">
+    </section>
+    <h1>Metal</h1>
+    <section id="metal-container" class="grid-container">
+    </section>
+    <h1>R&B</h1>
+    <section id="rnb-container" class="grid-container">
+    </section>
+  </section>
+  <section id="explore" class="page">
+
+  </section>
+  <section id="mypage" class="page">
+
+  </section>
+
+  <!-- loader  
+  <div id="loader">
+    <div class="spinner"></div>
+  </div>-->
+
+  <!-- SPA functionality  -->
+  <script src="js/router.js"></script>
+  <!-- main js file -->
+  <script src="js/mainpage.js"></script>
+</body>
+
+</html>
