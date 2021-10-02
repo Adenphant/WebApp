@@ -29,6 +29,20 @@ async function getArtists() {
 
 getArtists();
 
+// append content to the DOM
+function appendArtists(contents) {
+  let htmlTemplate = "";
+  for (let content of contents) {
+    htmlTemplate += /*html*/ `
+      <article>
+      <img src="${getFeaturedImageUrl(content)}">
+              
+      </article>
+    `;
+  }
+  document.querySelector('#artist-container').innerHTML += htmlTemplate;
+}
+
 // append hiphop to the DOM
 function appendGenres(contents) {
   let htmlTemplate = "";
@@ -43,19 +57,7 @@ function appendGenres(contents) {
   document.querySelector('#featured-container').innerHTML += htmlTemplate;
 }
 
-// append content to the DOM
-function appendArtists(contents) {
-  let htmlTemplate = "";
-  for (let content of contents) {
-    htmlTemplate += /*html*/ `
-      <article>
-      <img src="${getFeaturedImageUrl(content)}">
-              
-      </article>
-    `;
-  }
-  document.querySelector('#artist-container').innerHTML += htmlTemplate;
-}
+
 
 //fetch right now
 
