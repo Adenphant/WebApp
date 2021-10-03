@@ -305,7 +305,46 @@ justify-content: center;
 	top:1px;
 }
 
+/* ---------- settings ---------- */
 
+/*tænker det er noget alla det til baggrunds farve?*/
+.container1{
+background: gray;
+position: flex;
+}
+
+#settings p1 {
+  height: 30vh;
+  display: flex;
+  align-items:flex-end;
+  justify-content:center;
+  padding-bottom: 2%;
+  }
+
+  #settings p2 {
+    height: 10vh;
+    display: flex;
+    align-items:flex-end;
+    justify-content:center;
+    padding-bottom: 2%;
+    }
+
+    #settings p3 {
+      height: 10vh;
+      display: flex;
+      align-items:flex-end;
+      justify-content:center;
+      padding-bottom: 2%;
+      }
+  
+    #settings a {
+    padding: 1.5%;
+    }
+
+ .bottombox {
+ position: flex;
+ background: gray;
+ }   
 
 /* ---------- logo styling ---------- */
 .logo {
