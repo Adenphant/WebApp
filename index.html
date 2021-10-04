@@ -1,0 +1,124 @@
+<!doctype html> 
+<html lang="en">
+
+<head> 
+  <meta charset="utf-8">
+  <title>Movies</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Movie Single Page Application">
+  <meta name="author" content="Rasmus Cederdorff">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+</head>
+
+<body onhashchange="pageChange()">
+  <!-- tabbar navigation -->
+  <nav class="tabbar">
+    <a href="#mainpage">Main Page</a>
+    <a href="#genres">Genres</a>
+    <a href="#explore">Explore</a>
+    <a href="#mypage">My Page</a>
+  </nav>
+
+  <!-- pages -->
+  <!-- Mainpage -->
+  <section id="mainpage" class="page">
+  <!-- <img src="img/banner.jpeg" alt=""> -->
+  <div id="banner"></div>
+   <div>
+      <h2>Main Page</h2>
+    <h1>Featured Genres</h1>
+    <section id="featured-container" class="grid-container">
+      
+    </section>
+    <h1>Featured Artists</h1>
+    <section id="artist-container" class="grid-container">
+      
+    </section>
+    <h1>Right Now - For You</h1>
+    <section id="rightnow-container" class="grid-container">
+      
+    </section>
+  </div>
+  </section>
+
+  <!-- Genres -->
+  <section id="genres" class="page">
+   
+      <h2>Genres</h2>
+      <!-- <input type="search" placeholder="Search genres...">
+      <h3>Or discover</h3> -->
+    <div>
+    <h1>HipHop</h1>
+    <section id="hiphop-container" class="grid-container">
+      
+    </section>
+    <h1>Pop</h1>
+    <section id="pop-container" class="grid-container">
+      
+    </section>
+    <h1>Rock</h1>
+    <section id="rock-container" class="grid-container">
+      
+      <div></div>
+    </section>
+    <h1>Metal</h1>
+    <section id="metal-container" class="grid-container">
+      
+    </section>
+    <h1>R&B</h1>
+    <section id="rnb-container" class="grid-container">
+      
+    </section>
+  </div>
+  </section>
+  <!-- Explore page -->
+  <section id="explore" class="page">
+    <!-- <div> -->
+      <!-- <h2>Explore</h2> -->
+    
+    <section id="explore1-container" class="grid-containe"></section>
+    <section id="explore1-class-container" class="grid-container luft"></section>
+    <section id="explore2-container" class="grid-containe"></section>
+    <section id="explore2-class-container" class="grid-container luft"></section>
+    <section id="explore3-container" class="grid-containe"></section>
+    <section id="explore3-class-container" class="grid-container luft"></section>
+    <section id="explore4-container" class="grid-containe"></section>
+    <section id="explore4-class-container" class="grid-container luft"></section>
+    <section id="explore5-container" class="grid-containe"></section>
+    <section id="explore5-class-container" class="grid-container luft"></section>
+  <!-- </div> -->
+  </section>
+        
+  <!-- mypage page -->
+  <section id="mypage" class="page">
+  <div>
+          <header class="topbar">
+            <h2>Hi "user"!</h2>
+          </header>
+            <h1>Your favourite albums</h1>
+            <section id="favourite-albums" class="grid-container">
+            </section>
+            <h1>Your friends must hear</h1>
+            <section id="friends-albums" class="grid-container">
+            </section>
+            
+            <section id="settingsbtn">
+              <a href="#settings" class="myButton">Settings</a>
+            </section>
+          </div>
+    </section>
+
+
+  <!-- loader  
+  <div id="loader">
+    <div class="spinner"></div>
+  </div>-->
+
+  <!-- SPA functionality  -->
+  <script src="js/spa.js"></script>
+  <!-- main js file -->
+  <script src="js/mainpage.js"></script>
+</body>
+
+</html>
