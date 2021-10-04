@@ -45,3 +45,25 @@ window.like = function like(id) {
 window.dislike = function dislike(id) {
     console.log("Dislike, post id: " + id);
 }
+
+/*/window.like =(id) => {
+    console.log("Like, post id: " + id);
+    //add to favorites
+    _favPost.push(id);
+    appendFavPost();
+
+    console.log(_carousel);
+    if (_carousel.cards.length === 1) {
+        alert("last album card");
+    }
+}
+
+window.dislike = (id) => {
+    console.log("Dislike, post id: " + id);
+    
+    console.log(_carousel);
+    if (!_carousel.nextCard) {
+        alert("Last album card");
+    }
+}
+/*/
