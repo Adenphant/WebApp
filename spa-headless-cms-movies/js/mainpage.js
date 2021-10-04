@@ -107,7 +107,6 @@ function appendHipHop(contents) {
     htmlTemplate += /*html*/ `
       <article>
       <img src="${getFeaturedImageUrl(content)}">
-              
       </article>
     `;
   }
