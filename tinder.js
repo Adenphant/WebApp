@@ -219,7 +219,7 @@ let _headers = {
                 });
                 const data = await response.json();
                 console.log(data);
-                _users = data.record;
+                _users = data;
                 appendUsers(_users);
               }
               loadPersons();
@@ -228,11 +228,7 @@ let _headers = {
                 let htmlTemplate = "";
                 for (let user of users) {
                   htmlTemplate += /*html*/ `
-                    <article>
-                      <h3>${user.name}</h3>
-                      <button onclick="selectUser('${user.id}')">Update</button>
-                      <button onclick="deleteUser('${user.id}')">Delete</button>
-                    </article>
+
                     `;
                 }
               }
