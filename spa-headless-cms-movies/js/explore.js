@@ -262,6 +262,7 @@ getExploreAlbum5();
     htmlTemplate += /*html*/ `
       <article>
       <img src="${getFeaturedImageUrl(content)}">
+
       </article>
     `;
   }
