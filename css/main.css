@@ -358,7 +358,69 @@ img {
   margin-right: 40px;
 }
 
+/* Swipe spil */
+#board {
+  width: 100%;
+  height: 100%;
+  /* position: absolute; */
+  overflow: hidden;
+  background-color: rgb(245, 247, 250);
+}
 
+.card {
+  width: 90%;
+  height: calc(100vh - 200px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 1%;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  transform: translateX(-50%) translateY(-50%) scale(0.95);
+  z-index: 1;
+}
+
+/* slide show */
+[data-component="slideshow"] .slide {
+display: none;
+}
+
+[data-component="slideshow"] .slide.active {
+display: block;
+}
+
+.card img{
+width: 100%;
+}
+/* Knap */
+
+.myButton1 {
+background:linear-gradient(to bottom, #000000 5%, #000000 100%);
+background-color:#000000;
+border-radius:24px;
+border:1px solid #241d13;
+display:inline-block;
+cursor:pointer;
+color:#ffffff;
+font-family:Arial;
+font-size:15px;
+font-weight:bold;
+padding:9px 13px;
+text-decoration:none;
+position: absolute;
+top: 50%;
+left: 38%;
+z-index: 0;
+
+}
+.myButton:hover {
+background:linear-gradient(to bottom, #c22828 5%, #e43c3c 100%);
+background-color:#3d3400;
+}
+.myButton:active {
+position:relative;
+top:1px;
+}
 
 
 
@@ -440,6 +502,8 @@ justify-content: center;
 	position:relative;
 	top:1px;
 }
+
+
 
 /* ---------- settings ---------- */
 

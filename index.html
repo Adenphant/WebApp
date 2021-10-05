@@ -76,29 +76,30 @@
         <h1>Vælg din genre</h1>
         <p> Hjælp os med at lære dig at kende ved at deltage i spillet på næste side, eller dyk direkte ned i musik-universet ved at trykke skip</p>
         <div class="carousel__actions-skip">
-          <a href="#">
+          <a href="#mainpage">
           <button id="carousel__button--prev" onclick="moveToNextSlide">Skip</button>
           </a>
-          <a href="#">
+          <a href="#home">
           <button id="carousel__button--next" onclick="moveToNextSlide">Next</button>
           </a>
         </div>
       </div>
     </div>
   </div>
-  
- 
- 
- 
- 
- 
-  <section id="spil" class="page">
+
+  <section id="home" class="page">
     <header class="topbar">
       <h2>Home</h2>
     </header>
     <div id="board"></div>
+    <a href="#mainpage" class="myButton1">Skip spillet</a>
   </section>
-  
+ 
+ 
+ 
+ 
+ 
+
 
 
 
@@ -183,15 +184,22 @@
             <h1>Your friends must hear</h1>
             <section id="friends-albums" class="grid-container">
             </section>
+
             
-            <!-- <section id="settingsbtn">
-              <a href="#settings" class="myButton">Settings</a>
-            </section> -->
+            <section id="connect-friends">
+              <a href="#" class="myButton">Connect</a>
+            </section> 
+            
+            <section id="settingsbtn">
+              <a href="#" class="myButton">Settings</a>
+            </section> 
           </div>
     </section>
   <section id="detailView" class="page">
       <header>
-        <a class="left" href="#explore"><</a>
+        <a class="left" href="#explore"></a>
+
+        
        
       </header>
       <section id="detailViewContainer" class="detail-grid"></section>
@@ -220,6 +228,9 @@
     <div class="spinner"></div>
   </div>-->
 
+  <!-- Swipe game  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+  <script src="js/main.js" type="module"></script>
   <!-- SPA functionality  -->
   <script src="js/spa.js"></script>
   <!-- main js file -->
