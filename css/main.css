@@ -149,7 +149,7 @@ img {
   color: var(--dark);
   text-align: center;
   padding: 20px 0;
-  width: 24%;
+  width: 24.1%;
   text-decoration: none;
   font-size: 0.7em;
   letter-spacing: 0em;
@@ -172,6 +172,7 @@ img {
 .page {
   display: none;
   animation: fadeIn 0.4s;
+  padding: 0 0 30px;
 }
 
 .page div {
@@ -233,11 +234,14 @@ img {
 }
 
 /* ---------- onboarding ---------- */
-.connect{
+#connect {
+  z-index: 2;
+  background-color: white;
+  display: block;
+  position: absolute;
+  height: 100vh;
   width: 100%;
-  max-width: 375px;
 }
-
 
 .connect .logo{
   display: flex;
@@ -246,7 +250,7 @@ img {
 
 .connect .logo img{
   padding-top: 120px;
-  padding-bottom: 200px;
+  padding-bottom: 100px;
   max-width: 280px;
 }
 
@@ -267,18 +271,17 @@ img {
   color:white;
   font-size: 2rem;
 }
-
-
-
 .carousel {
-  overflow: hidden;
-  max-width: 375px;
-  position: relative;
-  padding-bottom: 200px;
-  max-height: fit-content;
-  padding-top: 20px;
+  z-index: 2;
+  background-color: white;
+  display: block;
+  position: absolute;
+  height: 100vh;
+  width: 100%;
 }
-
+.carousel__item {
+  display: block;
+}
 
 .carousel .carousel__item img {
   width: 100%;
@@ -312,23 +315,22 @@ img {
 
 .carousel .carousel__actions {
   display: flex;
-  width: 100%;
+  width: 90%;
+  padding-top: 4em;
   justify-content: flex-end;
-  position: absolute;
-  top: 80%;
+  margin: 0 auto;
 }
 
 .carousel .carousel__actions-skip {
   display: flex;
-  width: 100%;
+  width: 90%;
+  padding-top: 4em;
   justify-content: space-between;
-  position: absolute;
-  top: 80%;
+  margin: 0 auto;
 }
 
 .carousel .carousel__actions button {
-  border-radius: 10px;
-  border: 0;
+  border-radius: 7px;
   font-weight: bold;
   cursor: pointer;
   width: 80px;
@@ -340,7 +342,6 @@ img {
 
 .carousel .carousel__actions-skip button {
   border-radius: 10px;
-  border: 0;
   font-weight: bold;
   cursor: pointer;
   width: 80px;
@@ -350,13 +351,6 @@ img {
 }
 
 
-.carousel .carousel__actions button#carousel__button--prev, .carousel .carousel__actions-skip button#carousel__button--prev {
-  margin-left: 40px;
-}
-
-.carousel .carousel__actions button#carousel__button--next, .carousel .carousel__actions-skip button#carousel__button--next {
-  margin-right: 40px;
-}
 
 /* Swipe spil */
 #board {
@@ -395,34 +389,21 @@ width: 100%;
 /* Knap */
 
 .myButton1 {
-background:linear-gradient(to bottom, #000000 5%, #000000 100%);
 background-color:#000000;
-border-radius:24px;
-border:1px solid #241d13;
-display:inline-block;
+border-radius:7px;
+color: white;
 cursor:pointer;
-color:#ffffff;
-font-family:Arial;
-font-size:15px;
-font-weight:bold;
-padding:9px 13px;
+text-align: center;
+width: 50%;
+margin: 0 25%;
+padding: 20px 0;
 text-decoration:none;
 position: absolute;
-top: 50%;
-left: 38%;
+top: 45%;
+
 z-index: 0;
 
 }
-.myButton:hover {
-background:linear-gradient(to bottom, #c22828 5%, #e43c3c 100%);
-background-color:#3d3400;
-}
-.myButton:active {
-position:relative;
-top:1px;
-}
-
-
 
 /* Genres */
 .grid-container2 > img {
