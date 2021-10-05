@@ -1,4 +1,4 @@
-import Carousel from "./spil.js";
+import Carousel from "./carousel.js";
 
 let board = document.querySelector('#board');
 
@@ -39,12 +39,19 @@ function getFeaturedImageUrl(post) {
 
 window.like = function like(id) {
     console.log("Like, post id: " + id);
+    if (_carousel.cards.length === 1) {
+        navigateTo("contact");
+    }
     // add to favorites 🎉
 }
 
 window.dislike = function dislike(id) {
     console.log("Dislike, post id: " + id);
+    if (_carousel.cards.length === 1) {
+        navigateTo("contact");
+    }
 }
+
 
 /*/window.like =(id) => {
     console.log("Like, post id: " + id);

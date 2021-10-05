@@ -1,4 +1,4 @@
-export default class Spil {
+export default class Carousel {
 
     constructor(element) {
         this.board = element;
