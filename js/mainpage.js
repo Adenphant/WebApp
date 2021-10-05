@@ -2,6 +2,17 @@
 
 let _content = [];
 
+async function getAllPosts() {
+  let response = await fetch("http://wordpress.oscho.dk//wp-json/wp/v2/posts?_embed&per_page=100");
+  let data = await response.json();
+  _content = data;
+};
+
+getAllPosts();
+
+// swipe_______
+
+
 // ______Forside_______
 
 // fetch featured genres (hip hop)
@@ -9,7 +20,6 @@ async function getGenres() {
   let response = await fetch("http://wordpress.oscho.dk//wp-json/wp/v2/posts?_embed&categories=19");
   let data = await response.json();
   console.log(data);
-  _content = data;
   appendGenres(data);
   //showLoader(false);
 }
@@ -22,7 +32,6 @@ async function getArtists() {
   let response = await fetch("http://wordpress.oscho.dk//wp-json/wp/v2/posts?_embed&categories=18");
   let data = await response.json();
   console.log(data);
-  _content = data;
   appendArtists(data);
   //showLoader(false);
 }
@@ -61,7 +70,6 @@ async function getRightNow() {
   let response = await fetch("http://wordpress.oscho.dk//wp-json/wp/v2/posts?_embed&categories=20");
   let data = await response.json();
   console.log(data);
-  _content = data;
   appendRightNow(data);
   //showLoader(false);
 }
@@ -73,9 +81,9 @@ function appendRightNow(contents) {
   let htmlTemplate = "";
   for (let content of contents) {
     htmlTemplate += /*html*/ `
-      <article>
-      <img src="${getFeaturedImageUrl(content)}"> 
-      </article>
+    <article onclick="showDetailView('${content.id}')">
+      <img src="${getFeaturedImageUrl(content)}">
+    </article>
     `;
   }
   document.querySelector('#rightnow-container').innerHTML += htmlTemplate;
@@ -88,7 +96,6 @@ async function getHipHop() {
   let response = await fetch("http://wordpress.oscho.dk//wp-json/wp/v2/posts?_embed&categories=5");
   let data = await response.json();
   console.log(data);
-  _content = data;
   appendHipHop(data);
   //showLoader(false);
 }
@@ -100,10 +107,9 @@ function appendHipHop(contents) {
   let htmlTemplate = "";
   for (let content of contents) {
     htmlTemplate += /*html*/ `
-      <article onclick="showDetailView('${content.id}')">
-      <img src="${getFeaturedImageUrl(content)}">
-              
-      </article>
+    <article onclick="showDetailView('${content.id}')">
+    <img src="${getFeaturedImageUrl(content)}">
+    </article>
     `;
   }
   document.querySelector('#hiphop-container').innerHTML += htmlTemplate;
@@ -115,7 +121,6 @@ async function getPop() {
   let response = await fetch("http://wordpress.oscho.dk//wp-json/wp/v2/posts?_embed&categories=17");
   let data = await response.json();
   console.log(data);
-  _content = data;
   appendPop(data);
   //showLoader(false);
 }
@@ -127,12 +132,9 @@ function appendPop(contents) {
   let htmlTemplate = "";
   for (let content of contents) {
     htmlTemplate += /*html*/ `
-    
-      <article>
-      <img src="${getFeaturedImageUrl(content)}">
-              
-      </article>
-      
+    <article onclick="showDetailView('${content.id}')">
+     <img src="${getFeaturedImageUrl(content)}">
+    </article>
     `;
   }
   document.querySelector('#pop-container').innerHTML += htmlTemplate;
@@ -144,7 +146,6 @@ async function getRock() {
   let response = await fetch("http://wordpress.oscho.dk//wp-json/wp/v2/posts?_embed&categories=6");
   let data = await response.json();
   console.log(data);
-  _content = data;
   appendRock(data);
   //showLoader(false);
 }
@@ -156,10 +157,9 @@ function appendRock(contents) {
   let htmlTemplate = "";
   for (let content of contents) {
     htmlTemplate += /*html*/ `
-      <article>
-      <img src="${getFeaturedImageUrl(content)}">
-              
-      </article>
+    <article onclick="showDetailView('${content.id}')">
+    <img src="${getFeaturedImageUrl(content)}">
+    </article>
     `;
   }
   document.querySelector('#rock-container').innerHTML += htmlTemplate;
@@ -171,7 +171,6 @@ async function getMetal() {
   let response = await fetch("http://wordpress.oscho.dk//wp-json/wp/v2/posts?_embed&categories=14");
   let data = await response.json();
   console.log(data);
-  _content = data;
   appendMetal(data);
   //showLoader(false);
 }
@@ -183,10 +182,9 @@ function appendMetal(contents) {
   let htmlTemplate = "";
   for (let content of contents) {
     htmlTemplate += /*html*/ `
-      <article>
-      <img src="${getFeaturedImageUrl(content)}">
-              
-      </article>
+    <article onclick="showDetailView('${content.id}')">
+    <img src="${getFeaturedImageUrl(content)}">
+    </article>
     `;
   }
   document.querySelector('#metal-container').innerHTML += htmlTemplate;
@@ -199,7 +197,6 @@ async function getRnb() {
   let response = await fetch("http://wordpress.oscho.dk//wp-json/wp/v2/posts?_embed&categories=13");
   let data = await response.json();
   console.log(data);
-  _content = data;
   appendRnb(data);
   //showLoader(false);
 }
@@ -210,24 +207,17 @@ getRnb();
 function appendRnb(contents) {
   let htmlTemplate = "";
   for (let content of contents) {
+    
     htmlTemplate += /*html*/ `
-      <a href="${content._embedded.rendered}">
-      <img src="${getFeaturedImageUrl(content)}">     
-      </a>
+    <article onclick="showDetailView('${content.id}')">
+     <img src="${getFeaturedImageUrl(content)}">
+    </article>
     `;
   }
   document.querySelector('#rnb-container').innerHTML += htmlTemplate;
   document.querySelector('#favourite-albums').innerHTML += htmlTemplate;
 }
 
-// Get image URL
-function getFeaturedImageUrl(post) {
-  let imageUrl = "";
-  if (post._embedded['wp:featuredmedia']) {
-    imageUrl = post._embedded['wp:featuredmedia'][0].source_url;
-  }
-  return imageUrl;
-}
 
 
 //---Explore page--
@@ -237,7 +227,7 @@ async function getExploreArtist1() {
     let response = await fetch("http://wordpress.oscho.dk//wp-json/wp/v2/posts?_embed&categories=28");
     let data = await response.json();
     console.log(data)
-    _content = data;
+
     appendExploreArtist1(data);
     //showLoader(false);
   }
@@ -268,7 +258,6 @@ async function getExploreArtist1() {
   async function getExploreAlbum1() {
     let response = await fetch("http://wordpress.oscho.dk//wp-json/wp/v2/posts?_embed&categories=29");
     let data = await response.json();
-    _content = data;
     appendExploreAlbum1(data);
     //showLoader(false);
   }
@@ -281,11 +270,9 @@ async function getExploreArtist1() {
     for (let content of contents) {
       htmlTemplate += /*html*/ `
      
-        <article>
-        <div>
-        <img src="${getFeaturedImageUrl(content)}">
-        </div>
-        </article>
+      <article onclick="showDetailView('${content.id}')">
+       <img src="${getFeaturedImageUrl(content)}">
+      </article>
       `;
     }
     document.querySelector('#explore1-class-container').innerHTML += htmlTemplate;
@@ -295,7 +282,6 @@ async function getExploreArtist1() {
 async function getExploreArtist2() {
   let response = await fetch("http://wordpress.oscho.dk//wp-json/wp/v2/posts?_embed&categories=25");
   let data = await response.json();
-  _content = data;
   appendExploreArtist2(data);
   //showLoader(false);
 }
@@ -326,7 +312,7 @@ function appendExploreArtist2(contents) {
 async function getExploreAlbum2() {
   let response = await fetch("http://wordpress.oscho.dk//wp-json/wp/v2/posts?_embed&categories=26");
   let data = await response.json();
-  _content = data;
+
   appendExploreAlbum2(data);
   //showLoader(false);
 }
@@ -338,9 +324,9 @@ getExploreAlbum2();
   let htmlTemplate = "";
   for (let content of contents) {
     htmlTemplate += /*html*/ `
-      <article>
-      <img src="${getFeaturedImageUrl(content)}">
-      </article>
+    <article onclick="showDetailView('${content.id}')">
+    <img src="${getFeaturedImageUrl(content)}">
+    </article>
     `;
   }
   document.querySelector('#explore2-class-container').innerHTML += htmlTemplate;
@@ -352,7 +338,7 @@ getExploreAlbum2();
   let response = await fetch("http://wordpress.oscho.dk//wp-json/wp/v2/posts?_embed&categories=30");
   let data = await response.json();
   console.log(data);
-  _content = data;
+
   appendExploreArtist3(data);
   //showLoader(false);
 }
@@ -384,7 +370,7 @@ async function getExploreAlbum3() {
   let response = await fetch("http://wordpress.oscho.dk//wp-json/wp/v2/posts?_embed&categories=31");
   let data = await response.json();
   console.log(data);
-  _content = data;
+
   appendExploreAlbum3(data);
   //showLoader(false);
 }
@@ -396,9 +382,9 @@ getExploreAlbum3();
   let htmlTemplate = "";
   for (let content of contents) {
     htmlTemplate += /*html*/ `
-      <article>
+    <article onclick="showDetailView('${content.id}')">
       <img src="${getFeaturedImageUrl(content)}">
-      </article>
+    </article>
     `;
   }
   document.querySelector('#explore3-class-container').innerHTML += htmlTemplate;
@@ -409,7 +395,7 @@ async function getExploreArtist4() {
   let response = await fetch("http://wordpress.oscho.dk//wp-json/wp/v2/posts?_embed&categories=32");
   let data = await response.json();
   console.log(data);
-  _content = data;
+
   appendExploreArtist4(data);
   //showLoader(false);
 }
@@ -441,7 +427,7 @@ async function getExploreAlbum4() {
   let response = await fetch("http://wordpress.oscho.dk//wp-json/wp/v2/posts?_embed&categories=34");
   let data = await response.json();
   console.log(data);
-  _content = data;
+
   appendExploreAlbum4(data);
   //showLoader(false);
 }
@@ -453,9 +439,9 @@ getExploreAlbum4();
   let htmlTemplate = "";
   for (let content of contents) {
     htmlTemplate += /*html*/ `
-      <article>
-      <img src="${getFeaturedImageUrl(content)}">
-      </article>
+    <article onclick="showDetailView('${content.id}')">
+    <img src="${getFeaturedImageUrl(content)}">
+    </article>
     `;
   }
   document.querySelector('#explore4-class-container').innerHTML += htmlTemplate;
@@ -466,14 +452,11 @@ async function getExploreArtist5() {
   let response = await fetch("http://wordpress.oscho.dk//wp-json/wp/v2/posts?_embed&categories=35");
   let data = await response.json();
   console.log(data);
-  _content = data;
   appendExploreArtist5(data);
   //showLoader(false);
 }
 
 getExploreArtist5();
-
-
 
 // append 5th artist to the DOM KANYE WEST
 function appendExploreArtist5(contents) {
@@ -481,8 +464,7 @@ function appendExploreArtist5(contents) {
   for (let content of contents) {
     htmlTemplate += /*html*/ `
       <article>
-      
-      <img src="${getFeaturedImageUrl(content)}">
+        <img src="${getFeaturedImageUrl(content)}">
       <div>
       <h1>${content.title.rendered}</h1>
       <p>${content.excerpt.rendered}<p>
@@ -499,7 +481,6 @@ async function getExploreAlbum5() {
   let response = await fetch("http://wordpress.oscho.dk//wp-json/wp/v2/posts?_embed&categories=36");
   let data = await response.json();
   console.log(data);
-  _content = data;
   appendExploreAlbum5(data);
   //showLoader(false);
 }
@@ -511,8 +492,8 @@ getExploreAlbum5();
   let htmlTemplate = "";
   for (let content of contents) {
     htmlTemplate += /*html*/ `
-      <article>
-      <img src="${getFeaturedImageUrl(content)}">
+      <article onclick="showDetailView('${content.id}')">
+       <img src="${getFeaturedImageUrl(content)}">
       </article>
     `;
   }
@@ -521,18 +502,30 @@ getExploreAlbum5();
 
 //Test
 function showDetailView(id) {
-  const movie = _content.find(movie => movie.id == id);
-  // document.querySelector("#detailView h2").innerHTML = movie.title.rendered;
+  const content = _content.find(content => content.id == id);
+  // document.querySelector("#detailView h2").innerHTML = content.title.rendered;
   document.querySelector("#detailViewContainer").innerHTML = /*html*/`
-      <img src="${getFeaturedImageUrl(movie)}">
-     
+  <img src="${getFeaturedImageUrl(content)}">
+  <h1>${content.title.rendered}</h1>
+  <h3>${content.excerpt.rendered}</h3>
+  <a href="${content.acf.musik_link}" target="_blank">Listen</a>
   `;
   navigateTo("detailView");
 }
+// http://wordpress.oscho.dk//wp-json/wp/v2/posts?_embed&categories=36&per_page=100
+
+// Get image URL
+function getFeaturedImageUrl(content) {
+  let imageUrl = "";
+  if (content._embedded['wp:featuredmedia']) {
+    imageUrl = content._embedded['wp:featuredmedia'][0].source_url;
+  }
+  return imageUrl;
+}
 
 // async function getAll() {
-//   let responseC = await fetch("http://gang.alexanderpoeden.com/wp-json/wp/v2/categories");
-//   let responseA = await fetch("http://gang.alexanderpoeden.com/wp-json/wp/v2/posts?_embed");
+//   let responseC = await fetch("http://wordpress.oscho.dk/wp-json/wp/v2/categories");
+//   let responseA = await fetch("http://wordpress.oscho.dk/wp-json/wp/v2/posts?_embed");
 //   let dataC = await responseC.json();
 //   let dataA = await responseA.json();
 //   console.log(dataC,dataA);
@@ -543,20 +536,23 @@ function showDetailView(id) {
 // function appendAlbumsByCategories(categories, albums) {
 //   let html = ""
 //   for (const category of categories) { // loop through all categories
+//     if (category.parent == 0){ 
 //       html +=/*html*/`
-//           <h1>${category.name}</h1><div class="grid-container2">
+//           <h2>${category.name}</h2><div class="grid-container">
 //       `;
 //       for (const album of albums) { // loop through all movies 
 //           if (album.categories.includes(category.id)) {
-//               html += /*html*/ `
+//               html += /*html*/ ` 
+//               <a href="${album.acf.music_link}">
 //                       <img src="${getFeaturedImageUrl(album)}" class="img">
+//               </a>
 //               `;
 //           }
 //       }
 //       html += /*html*/ `
 //                 </div>
 //               `;
-  
-// }
-//   document.querySelector("#content").innerHTML = html;
+//             }
+//     }
+//   document.querySelector("#test").innerHTML = html;
 // }
