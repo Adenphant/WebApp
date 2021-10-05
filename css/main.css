@@ -227,7 +227,6 @@ img {
 #banner {
   background-image: url(../img/banner.jpeg);
   background-repeat: no-repeat;
-  
   background-size: cover;
   background-position: 5% 30%;
   padding: 20% 0;
@@ -241,6 +240,8 @@ img {
   position: absolute;
   height: 100vh;
   width: 100%;
+  max-width: 375px;
+  margin: 0 auto;
 }
 
 .connect .logo{
@@ -532,6 +533,9 @@ position: flex;
 .grid-containe h1 {
   margin: 0.6em 0 0.2em;
   font-weight: 500;
+}
+.grid-containe > article h3{
+  margin-top: 2em;
 }
 .grid-containe > article img {
   height: 250px;
