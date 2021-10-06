@@ -1,3 +1,5 @@
+/* Made in collaboration by the whole group */
+
 "use strict";
 
 let _content = [];

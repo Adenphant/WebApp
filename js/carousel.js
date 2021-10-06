@@ -1,3 +1,6 @@
+/* Made in collaboration by the whole group */
+
+// Everything that deal with the swipe game in a class constructor
 export default class Carousel {
 
     constructor(element) {

@@ -1,3 +1,5 @@
+/* Made in collaboration by the whole group */
+
 /* Reset */
 html,
 body,
@@ -281,9 +283,7 @@ img {
   width: 100%;
   max-width: 375px;
 }
-.carousel__item {
-  
-}
+
 
 .carousel .carousel__item img {
   width: 100%;

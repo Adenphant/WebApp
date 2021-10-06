@@ -1,3 +1,5 @@
+/* Made in collaboration by the whole group */
+
 import Carousel from "./carousel.js";
 
 let board = document.querySelector('#board');
